@@ -19,9 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/saml2/{uuid}/login', [Saml2Controller::class,'login']);
-Route::post('/saml2/{uuid}/acs', [Saml2Controller::class,'acs']);
-Route::get('/saml2/{uuid}/metadata', [Saml2Controller::class,'metada']);
+Route::post('saml2/{uuid}/acs', [Saml2Controller::class, 'acs']);
+Route::get('saml2/{uuid}/login', [Saml2Controller::class, 'login']);
 
 
 Route::middleware(['saml'])->group(function () {
@@ -29,3 +28,6 @@ Route::middleware(['saml'])->group(function () {
         return 'Home';
     });
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

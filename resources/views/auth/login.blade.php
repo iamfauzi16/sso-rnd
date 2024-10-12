@@ -64,6 +64,9 @@
                                 @endif
                             </div>
                         </div>
+                        <div>
+                            <a href="{{ route('acs') }}">SSO</a>
+                        </div>
                     </form>
                 </div>
             </div>
